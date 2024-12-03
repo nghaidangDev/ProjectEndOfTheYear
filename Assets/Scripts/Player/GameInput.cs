@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
-    private PlayerInputAction playerInputAction;
+    private InputPlayerMove inputPlayerMove;
 
     private void Awake()
     {
-        playerInputAction = new PlayerInputAction();
-        playerInputAction.Player.Enable();
+        inputPlayerMove = new InputPlayerMove();
+        inputPlayerMove.Player.Enable();
     }
 
     public Vector2 GetMovementVectorNormalize()
     {
-        Vector2 inputVector = playerInputAction.Player.Move.ReadValue<Vector2>();
+        Vector2 inputVector = inputPlayerMove.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
 
