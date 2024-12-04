@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-    private void Movement()
+    public void Movement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalize();
 
