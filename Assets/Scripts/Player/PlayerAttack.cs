@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private LayerMask EnemyLayer;
 
-    [SerializeField] private GameObject prefabBullet;
+    //[SerializeField] private GameObject prefabBullet;
 
     [SerializeField] private Transform posBullet;
 
@@ -29,19 +29,18 @@ public class PlayerAttack : MonoBehaviour
             if (isEnemy.collider != null)
             {
                 GameObject bullet = ObjectPool.instance.GetPoolObject();
-                //Spawn shooting 
-                Rigidbody2D rb2d = Instantiate(bullet, posBullet.position, posBullet.rotation).GetComponent<Rigidbody2D>();
-
-                if (rb2d != null)
-                {
-                    //Need a Distance for AddForce
-                    rb2d.AddForce(moveDir * forceShoot);
-                }
 
                 if (bullet != null)
                 {
                     bullet.transform.position = posBullet.position;
                     bullet.SetActive(true);
+                }
+
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+                if (rb != null)
+                {
+                    rb.AddForce(moveDir *  forceShoot);
                 }
             }
         }
