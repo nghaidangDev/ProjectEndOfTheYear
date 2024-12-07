@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,16 +11,25 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(WaitRespawnBullet());
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        gameObject.SetActive(false);
-    }
-
     IEnumerator WaitRespawnBullet()
     {
         yield return new WaitForSeconds(limitBullet);
 
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Health playerHealth = collision.GetComponent<Health>();
+
+            if (playerHealth != null )
+            {
+                playerHealth.TakeDamge(10f);
+            }
+
+            gameObject.SetActive(false);
+        }
     }
 }
