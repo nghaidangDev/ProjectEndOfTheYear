@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4b5cb3c3380de4b8f37966bcb59fd0, type: 3}
+  m_Name: Cyclope
+  m_EditorClassIdentifier: 
+  nameEnemy: Cyclope
+  hp: 50
+  damaged: 10
+  speed: 2
+  spriteEnemy: {fileID: 663262250, guid: c5ec511da687f5247af7109b5dfa5ac1, type: 3}

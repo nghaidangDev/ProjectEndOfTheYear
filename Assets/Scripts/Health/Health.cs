@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        //Set data for health
         health = maxHealth;
         healthBar.SetMaxHealth(health);
     }
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour
     public void TakeDamge(float _damaged)
     {
         health -= _damaged;
+        //Update health when take damage
         healthBar.SetHealth(health);
 
         if (health <= 0)
