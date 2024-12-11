@@ -23,11 +23,11 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             //Find script Health of Enemy
-            Health playerHealth = collision.GetComponent<Health>();
+            Health enemyHealth = collision.GetComponent<Health>();
 
-            if (playerHealth != null)
+            if (enemyHealth != null)
             {
-                playerHealth.TakeDamge(10f);
+                enemyHealth.TakeDamge(10f);
             }
 
             gameObject.SetActive(false);

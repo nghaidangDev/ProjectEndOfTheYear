@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float health;
-    private float maxHealth = 100f;
+    public float health;
+    public float maxHealth = 100f;
 
     public HealthBar healthBar;
+
+    private Enemy enemy;
 
     private void Start()
     {
         //Set data for health
         health = maxHealth;
         healthBar.SetMaxHealth(health);
+
+        enemy = GetComponent<Enemy>();
     }
 
     public void TakeDamge(float _damaged)
@@ -24,8 +28,15 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            //
-            Debug.Log("Die");   
+            health = maxHealth;
+            UpdateHealth(health);
+
+            enemy.currentStates = EnemyStates.Dead;
         }
+    }
+
+    public void UpdateHealth(float health)
+    {
+        healthBar.SetHealth(health);
     }
 }
