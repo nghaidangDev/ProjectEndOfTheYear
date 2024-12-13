@@ -1,117 +1,77 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum EnemyStates { 
-    Idle,
-    Moving,
-    Attack,
-    Dead
-}
 public class Enemy : MonoBehaviour
 {
-    public EnemyStates currentStates;
-
     public EnemyData enemyData;
-    public EnemyAnimations enemyAnimations;
 
-    private Health enemyHealth;
+    private string nameEnemy;
 
-    private GameObject player;
+    private float hpEnemy;
+    private float damagedEnemy;
+    private float speedEnemy;
 
-    [SerializeField] private float playerInsideRadios;
-    [SerializeField] private float playerAttackRadios;
+    //private Image imgEnemy;
+
+    [Header("RangeAttack")]
+    private Transform spawnCenter;
+
+    public float attackPlayerRadius;
+    public float chasingRadius;
+
+    public float attackDistance;
 
     private bool isChasingPlayer = false;
+    private GameObject player;
 
 
     private void Start()
     {
-        currentStates = EnemyStates.Idle;
-
-        if (enemyData == null)
+        if (enemyData != null)
         {
-            Debug.Log("Enemy is not work");
-        }
-
-        if (enemyAnimations == null)
-        {
-            Debug.Log("Enemy Animations is not work");
+            nameEnemy = enemyData.name;
+            hpEnemy = enemyData.hp;
+            damagedEnemy = enemyData.damaged;
+            speedEnemy = enemyData.speed;
+            //imgEnemy.sprite = enemyData.spriteEnemy;
         }
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        spawnCenter = transform;
     }
 
     private void Update()
     {
-        switch (currentStates)
-        {
-            case EnemyStates.Idle:
-                HandleIdle();
-                break;
-            case EnemyStates.Moving:
-                HandleMoving();
-                break;
-            case EnemyStates.Attack:
-                break;
-            case EnemyStates.Dead:
-                HandleDead();
-                break;
-        }
-    }
-
-    private void HandleIdle()
-    {
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float distanceToSpawn = Vector2.Distance(transform.position, spawnCenter.position);
 
-        if (distanceToPlayer <= playerInsideRadios)
+        if (distanceToPlayer <= chasingRadius && distanceToSpawn <= chasingRadius)
         {
             isChasingPlayer = true;
-            currentStates = EnemyStates.Moving;
         }
-        else if (distanceToPlayer > playerInsideRadios)
+        else if (distanceToSpawn > chasingRadius || distanceToPlayer > chasingRadius)
         {
             isChasingPlayer = false;
         }
-    }
 
-    private void HandleMoving()
-    {
         if (isChasingPlayer)
         {
-            ChasingPlayer();
-        } 
-        else if (!isChasingPlayer)
+            ChasingToPlayer();
+        }
+        else
         {
-            currentStates = EnemyStates.Idle;
+            MoveToSpawnCenter(spawnCenter.position);
         }
     }
 
-    private void HandleAttack()
-    {
-
-    }
-
-    private void HandleDead()
-    {
-        StartCoroutine(EnemyRespawn());
-    }
-
-    IEnumerator EnemyRespawn()
-    {
-        GetComponent<Collider2D>().enabled = false;
-
-        yield return new WaitForSeconds(7f);
-
-        GetComponent<Collider2D>().enabled = true;
-        currentStates = EnemyStates.Idle;
-    }
-
-    private void ChasingPlayer()
+    private void ChasingToPlayer()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distanceToPlayer <= playerAttackRadios)
+        if (distanceToPlayer <= attackDistance)
         {
             AttackPlayer();
         }
@@ -121,27 +81,28 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void MoveToSpawnCenter(Vector2 target)
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target, speedEnemy * Time.deltaTime);
+    }
+
     private void AttackPlayer()
     {
         Debug.Log("Attack Player");
     }
 
-    void MoveTowards(Vector3 target)
+    private void MoveTowards(Vector2 target)
     {
-        float moveSpeed = enemyData.speed;
-
-        Vector3 direction = (target - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-
-        enemyAnimations.UpdateAnimations(direction);
+        Vector2 direction = (target - (Vector2)transform.position).normalized;
+        transform.position = Vector2.MoveTowards(transform.position, target, speedEnemy * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, playerInsideRadios);
+        Gizmos.DrawWireSphere(transform.position, attackPlayerRadius);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, playerAttackRadios);
+        Gizmos.DrawWireSphere(transform.position, chasingRadius);
     }
 }

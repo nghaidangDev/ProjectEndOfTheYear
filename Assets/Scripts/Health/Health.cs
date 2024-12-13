@@ -9,15 +9,11 @@ public class Health : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private Enemy enemy;
-
     private void Start()
     {
         //Set data for health
         health = maxHealth;
         healthBar.SetMaxHealth(health);
-
-        enemy = GetComponent<Enemy>();
     }
 
     public void TakeDamge(float _damaged)
@@ -30,8 +26,6 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
             UpdateHealth(health);
-
-            enemy.currentStates = EnemyStates.Dead;
         }
     }
 
