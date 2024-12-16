@@ -21,16 +21,5 @@ public class Health : MonoBehaviour
         health -= _damaged;
         //Update health when take damage
         healthBar.SetHealth(health);
-
-        if (health <= 0)
-        {
-            health = maxHealth;
-            UpdateHealth(health);
-        }
-    }
-
-    public void UpdateHealth(float health)
-    {
-        healthBar.SetHealth(health);
     }
 }
