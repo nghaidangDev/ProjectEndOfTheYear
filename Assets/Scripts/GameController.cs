@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameStates
+{
+    Play,
+    Pause,
+    Victory,
+    Lose
+}
+
 public class GameController : MonoBehaviour
 {
-    public GameObject prefabEnemy; // Prefab của Enemy
-    public Transform[] spawnTransforms; // Vị trí spawn của Enemy
+    public GameObject prefabEnemy;
+    public Transform[] spawnTransforms; 
 
     private void Start()
     {

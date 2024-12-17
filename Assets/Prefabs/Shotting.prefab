@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3915591071629927668}
   - component: {fileID: 140943133825830419}
   - component: {fileID: 8573865687726734863}
+  - component: {fileID: 2732861355650179318}
   m_Layer: 0
   m_Name: Shotting
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -67343515
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -323421059, guid: 70517e260d2ca624e89a631e21b0704c, type: 3}
+  m_Sprite: {fileID: 473881045, guid: ed94e3473956d0e44b8f314667872b05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.002328455, y: -2.7757344e-10}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.72586423
 --- !u!50 &140943133825830419
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +162,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fcba3bb1d4bae40845aecb6c687b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2732861355650179318
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702573650661463531}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5eb5ddb962e33d54190c61c76440f8a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
