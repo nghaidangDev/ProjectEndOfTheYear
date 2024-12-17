@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00d7ec194ce5174298bb9d8c81ae490, type: 3}
+  m_Sprite: {fileID: 1493041286, guid: d00d7ec194ce5174298bb9d8c81ae490, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -764,6 +764,56 @@ Transform:
   - {fileID: 679710839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &499831535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499831536}
+  - component: {fileID: 499831537}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499831536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499831535}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8165516, y: 1.7468854, z: 0.016565919}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499831537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499831535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839145da786faba428d141cfbc809b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToAdd: {fileID: 11400000, guid: 1f5ef591419e9e045bc3b7d4f513f29f, type: 2}
+  itemToRemove: {fileID: 11400000, guid: 5031a0c559451ed42bc97d9bde7e7e95, type: 2}
+  classItems:
+  - {fileID: 11400000, guid: 5031a0c559451ed42bc97d9bde7e7e95, type: 2}
+  - {fileID: 11400000, guid: 4aa0b03540eb6684e88e043f699d334e, type: 2}
+  - {fileID: 11400000, guid: 1f5ef591419e9e045bc3b7d4f513f29f, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -20366,3 +20416,4 @@ SceneRoots:
   - {fileID: 1398332398}
   - {fileID: 969696558}
   - {fileID: 448604971}
+  - {fileID: 499831536}
