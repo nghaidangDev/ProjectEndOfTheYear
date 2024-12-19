@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNames: Dish
   itemIcon: {fileID: 835198713, guid: b91d51ea925469c41b560db02ec4292f, type: 3}
+  isStackable: 1
   healthAdds: 5

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNames: Ring
   itemIcon: {fileID: 1085510312, guid: 235b93d193dd5a04586ab3c06c7fdb17, type: 3}
+  isStackable: 1

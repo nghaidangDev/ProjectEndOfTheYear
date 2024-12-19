@@ -6,6 +6,7 @@ public abstract class ItemClass : ScriptableObject
 {
     public string itemNames;
     public Sprite itemIcon;
+    public bool isStackable = true;
 
     public abstract ItemClass GetItem();
     public abstract ToolClass GetTool();

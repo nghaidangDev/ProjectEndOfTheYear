@@ -1396,8 +1396,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotHolder: {fileID: 328510485}
-  itemToAdd: {fileID: 11400000, guid: 5031a0c559451ed42bc97d9bde7e7e95, type: 2}
-  itemToRemove: {fileID: 11400000, guid: 5031a0c559451ed42bc97d9bde7e7e95, type: 2}
+  itemToAdd: {fileID: 11400000, guid: 1f5ef591419e9e045bc3b7d4f513f29f, type: 2}
+  itemToRemove: {fileID: 0}
+  items:
+  - item: {fileID: 11400000, guid: 1f5ef591419e9e045bc3b7d4f513f29f, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 4aa0b03540eb6684e88e043f699d334e, type: 2}
+    quantity: 5
+  - item: {fileID: 11400000, guid: 5031a0c559451ed42bc97d9bde7e7e95, type: 2}
+    quantity: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
